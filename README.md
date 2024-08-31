@@ -2,6 +2,7 @@
 The famous Dino Game for Frame AR Glasses by [Brilliant Labs](https://brilliant.xyz)
 
 ## Demo Video
+[![YouTube](http://i.ytimg.com/vi/TxkqQ3RnQxE/hqdefault.jpg)](https://www.youtube.com/watch?v=TxkqQ3RnQxE)
 [![YouTube](http://i.ytimg.com/vi/PbFKlvCr71M/hqdefault.jpg)](https://www.youtube.com/watch?v=PbFKlvCr71M)
 
 ## Project directories
