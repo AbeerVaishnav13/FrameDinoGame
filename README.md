@@ -2,8 +2,7 @@
 The famous Dino Game for Frame AR Glasses by [Brilliant Labs](https://brilliant.xyz)
 
 ## Demo Video
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PbFKlvCr71M?si=Jk__nfPh_H4N5xQe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![YouTube](http://i.ytimg.com/vi/PbFKlvCr71M/hqdefault.jpg)](https://www.youtube.com/watch?v=PbFKlvCr71M)
 
 ## Project directories
 - **src:** contains the Lua source for the game that would be uploaded to Frame for running the game.
