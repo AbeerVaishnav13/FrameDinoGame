@@ -6,7 +6,7 @@ The famous Dino Game for Frame AR Glasses by [Brilliant Labs](https://brilliant.
 
 ## Project directories
 - **src:** contains the Lua source for the game that would be uploaded to Frame for running the game.
-- **utils:** constains utility files for:
+- **utils:** contains utility files for:
     - Uploading the Lua source code to Frame (__upload.py__)
     - Generating bitmap string needed for Frame to display bitmap images (__bmp_gen.py__)
 
@@ -23,7 +23,7 @@ pip install -U numpy pillow framutils aioconsole
 ## Playing the game
 To play the game, it first needs to be uploaded to your Frame glasses.
 
-1. Clone this github reposity:
+1. Clone this GitHub repository:
 ```bash
 git clone https://github.com/AbeerVaishnav13/FrameDinoGame.git
 ```
