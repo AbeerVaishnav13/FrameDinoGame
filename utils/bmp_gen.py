@@ -65,18 +65,15 @@ def scale_bmp(bmp_bin_data: str, bmp_width: int,
     bmp_bin_scaled = bmp_bin_resized.repeat(scale_factor[1],
                                             axis=0).repeat(scale_factor[0],
                                                            axis=1)
-    print(bmp_bin_scaled.shape, num_rows, bmp_width)
 
     bmp_bin_scaled_resized = np.resize(
         bmp_bin_scaled,
         num_rows * bmp_width * scale_factor[0] * scale_factor[1],
     )
-    print(bmp_bin_scaled_resized.shape)
 
     bmp_bin_scaled_bytes = np.resize(
         bmp_bin_scaled_resized,
         (int(num_rows * bmp_width * scale_factor[0] * scale_factor[1] / 8), 8))
-    print(bmp_bin_scaled_bytes.shape)
 
     bmp_bytes_scaled = [
         f"{int(''.join(str(bit) for bit in byt), 2):0>2x}"
