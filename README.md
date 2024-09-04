@@ -18,7 +18,7 @@ The famous Dino Game for Frame AR Glasses by [Brilliant Labs](https://brilliant.
 
 - To install all dependencies, run the following in a conda or pyenv environment:
 ```bash
-pip install -U numpy pillow framutils aioconsole
+pip install -U numpy pillow frameutils aioconsole
 ```
 
 ## Playing the game
