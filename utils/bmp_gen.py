@@ -44,7 +44,7 @@ def load_image(img_absolute_path: str):
     img_data_str = "".join(
         str(int(pix)) for pix in np.reshape(img_data, height * width))
 
-    return img_data_str
+    return img_data_str, width
 
 
 def scale_bmp(bmp_bin_data: str, bmp_width: int,
@@ -87,9 +87,9 @@ def scale_bmp(bmp_bin_data: str, bmp_width: int,
 
 ## Example usage:
 
-# bmp_data = load_image()
+# bmp_data, bmp_width = load_image("/absolute/path/to/image.png")
 
-# new_bmp = scale_bmp(bmp_bin_data=bmp_data, bmp_width=48, scale_factor=(1, 1))
+# new_bmp = scale_bmp(bmp_bin_data=bmp_data, bmp_width=bmp_width, scale_factor=(1, 1))
 # print(new_bmp)
 
 ## Copy the out of this, and paste the hex string in the lua file
