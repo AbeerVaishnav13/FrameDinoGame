@@ -26,52 +26,6 @@ import asyncio
 import os
 from pathlib import Path
 
-
-# TODO: replace this method with built-in method once this PR is resolved
-#       https://github.com/brilliantlabsAR/frame-utilities-for-python/pull/18
-async def upload_file(b: Bluetooth, file: str, file_name="main.lua"):
-    """
-    Uploads a file as file_name. If the file exists, it will be overwritten.
-    """
-
-    await b.send_break_signal()
-
-    if os.path.exists(file):
-        with open(file, 'r') as f:
-            file = f.read()
-
-    file = file.replace("\n", "\\n")
-    file = file.replace("'", "\\'")
-    file = file.replace('"', '\\"')
-
-    await b.send_lua(f"f=frame.file.open('{file_name}','w');print(nil)",
-                     await_print=True)
-
-    index: int = 0
-    chunkSize: int = b.max_lua_payload() - 22
-
-    while index < len(file):
-        if index + chunkSize > len(file):
-            chunkSize = len(file) - index
-
-        # Don't split on an escape character
-        while file[index + chunkSize - 1] == '\\':
-            chunkSize -= 1
-
-        chunk: str = file[index:index + chunkSize]
-
-        await b.send_lua(f'f:write("{chunk}");print(nil)', await_print=True)
-
-        index += chunkSize
-
-    await b.send_lua("f:close();print(nil)", await_print=True)
-
-
-def ble_print_response_handler(message):
-    if message != "nil":
-        print(message)
-
-
 async def main():
     file_path = Path(__file__)
     src_path = file_path.parent.parent.absolute() / "src"
@@ -91,9 +45,7 @@ async def main():
     print("Uploading game...")
 
     for file in scripts_to_upload:
-        # TODO: replace this method with b.upload_file once this PR is resolved
-        #       https://github.com/brilliantlabsAR/frame-utilities-for-python/pull/18
-        await upload_file(b, file, file_name=file.split('/')[-1])
+        await b.upload_file(file, file_name=file.split('/')[-1])
         await asyncio.sleep(0.1)
 
     await b.send_reset_signal()
